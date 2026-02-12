@@ -1,0 +1,63 @@
+{
+  "name": "𝐓𝐞𝐱𝐭 𝐋𝐞𝐞𝐜𝐡",
+  "description": "𝑻𝒆𝒙𝒕 𝑳𝒆𝒆𝒄𝒉 𝑽𝒊𝒅𝒆𝒐 𝑬𝒙𝒕𝒓𝒂𝒄𝒕𝒐𝒓 𝑭𝒐𝒓 𝑻𝒆𝒍𝒆𝒈𝒓𝒂𝒎",
+  "logo": "https://graph.org/file/6307bea2182f82424bf90-e2f24f59f49a97b6c8.jpg",
+  "keywords": [
+    "text-video",
+    "video-extract",
+    "pyrogram"
+  ],
+  "repository": "https://github.com/nikhilsaini098/Saini-txt-direct",
+  "success_url": "https://github.com/nikhilsaini098/vfk",
+  "stack": "container",
+  "env": {
+    "API_ID": {
+      "description": "𝑬𝒏𝒕𝒆𝒓 𝒀𝒐𝒖𝒓 𝑨𝒑𝒊 𝑰𝑫",
+      "value": "20369373",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "𝑬𝒏𝒕𝒆𝒓 𝒀𝒐𝒖𝒓 𝑨𝒑𝒊 𝑯𝒂𝒔𝒉",
+      "value": "0d53cc7f978163fed3263be5cbb20ab0",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "𝑬𝒏𝒕𝒆𝒓 𝒀𝒐𝒖𝒓 𝑩𝒐𝒕 𝑻𝒐𝒌𝒆𝒏",
+      "value": "",
+      "required": true
+    },
+    "MONGO_URL": {
+      "description": "𝙀𝙣𝙩𝙚𝙧 𝙔𝙤𝙪𝙧 𝘿𝙖𝙩𝙖𝙗𝙖𝙨𝙚 𝙐𝙍𝙇",
+      "value": "mongodb+srv://teamjnc:TeamJNC123@cluster0.wx59fkk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+      "required": true
+    },
+    "MONGO_DB_NAME": {
+      "description": "𝙀𝙣𝙩𝙚𝙧 𝙔𝙤𝙪𝙧 𝘿𝙖𝙩𝙖𝙗𝙖𝙨𝙚 𝙉𝙖𝙢𝙚",
+      "value": "",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "𝑼𝒔𝒆𝒓 𝑰𝑫 𝑶𝒇 𝑩𝒐𝒕 𝑶𝒘𝒏𝒆𝒓",
+      "value": "7621154046",
+      "required": true
+    }
+  },
+  "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "standard-2x"
+        }
+   }, 
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "https://github.com/amivin/aria2-heroku.git"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    }
+  ]
+}

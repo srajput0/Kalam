@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: sainivfcbots
+    plan: free
+    env: docker
+    dockerfilePath: Dockerfile
+    repo: https://github.com/Tmglcd/Vfc-testing-
+    branch: main
+    autoDeploy: false
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: MONGO_URL
+        sync: false
+      - key: MONGO_DB_NAME
+        sync: false
+      - key: WEBHOOK
+        sync: false
+      - key: PORT
+        value: 8000  # Default port value, update if needed
