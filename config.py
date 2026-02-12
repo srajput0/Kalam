@@ -4,10 +4,10 @@ import os
 from pymongo import MongoClient 
 from datetime import datetime, timedelta 
 #====================================================================================================================================================== 
-API_ID    = os.environ.get("API_ID", "24630940") 
-API_HASH  = os.environ.get("API_HASH", "df46be1ad6b0027ec1dff6dd3bb703dd") 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "6838502005:AAH4t0Doku-XHKVgLR0LVDDH2Cahz37__Z8") 
-OWNER_ID = int(os.environ.get("OWNER_ID", 5966903608)) 
+API_ID    = os.environ.get("API_ID", "27343489") 
+API_HASH  = os.environ.get("API_HASH", "bb6da47b900d646484f58a5d19d64a68") 
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "8207099625:AAF6DDZCZziiGUYrcETHiubC3SI4P0IecAs") 
+OWNER_ID = int(os.environ.get("OWNER_ID", "8177972152") 
 CREDIT = "ঔৣ☬Rocky☬ঔৣ" 
 HELPLINK = "https://t.me/+Tyun2Ha78z03ODUx" 
 CONTACTLINK = "https://t.me/Dc5txt_bot" 
@@ -29,4 +29,5 @@ photologo = 'https://tinypic.host/images/2025/02/07/DeWatermark.ai_1738952933236
 photoyt = 'https://tinypic.host/images/2025/03/18/YouTube-Logo.wine.png' 
 photocp = 'https://tinypic.host/images/2025/03/28/IMG_20250328_133126.jpg' 
 photozip = 'https://envs.sh/cD_.jpg' 
+
 photoutkrash = 'https://tinypic.host/images/2025/05/25/IMG_20250525_210456.jpg'
