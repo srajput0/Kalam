@@ -6,8 +6,8 @@ from datetime import datetime, timedelta
 #====================================================================================================================================================== 
 API_ID    = os.environ.get("API_ID", "27343489") 
 API_HASH  = os.environ.get("API_HASH", "bb6da47b900d646484f58a5d19d64a68") 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "8207099625:AAF6DDZCZziiGUYrcETHiubC3SI4P0IecAs") 
-OWNER_ID = int(os.environ.get("OWNER_ID", "8177972152"))
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "7964142263:AAEYrdIbXU7YuhO4BtXcEmaQVzCbCakBGR0") 
+OWNER_ID = int(os.environ.get("OWNER_ID", "6697397532"))
 CREDIT = "ঔৣ☬Rocky☬ঔৣ" 
 HELPLINK = "https://t.me/+Tyun2Ha78z03ODUx" 
 CONTACTLINK = "https://t.me/Dc5txt_bot" 
@@ -31,4 +31,5 @@ photocp = 'https://tinypic.host/images/2025/03/28/IMG_20250328_133126.jpg'
 photozip = 'https://envs.sh/cD_.jpg' 
 
 photoutkrash = 'https://tinypic.host/images/2025/05/25/IMG_20250525_210456.jpg'
+
 
