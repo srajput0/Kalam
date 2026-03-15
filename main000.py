@@ -1411,7 +1411,8 @@ async def start(client: Client, msg: Message):
             f"Do you want to switch to this bot?",
             reply_markup=keyboard
         )
-    user = await bot.get_me()
+        
+    user = await client.get_me()
     mention = user.mention
     
     wait_msg = await msg.reply(
@@ -1424,7 +1425,6 @@ async def start(client: Client, msg: Message):
     start_message = await client.send_photo(
         chat_id=msg.chat.id,
         photo=welcome_image_path,
-        message_effect_id=random.choice(efcts),
         caption=Data.START.format(msg.from_user.mention, wish)
     )
     if len(msg.command) > 1:
