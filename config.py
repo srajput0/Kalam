@@ -4,9 +4,9 @@ import os
 from pymongo import MongoClient 
 from datetime import datetime, timedelta 
 #====================================================================================================================================================== 
-API_ID    = os.environ.get("API_ID", "27343489") 
-API_HASH  = os.environ.get("API_HASH", "bb6da47b900d646484f58a5d19d64a68") 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "7964142263:AAEYrdIbXU7YuhO4BtXcEmaQVzCbCakBGR0") 
+API_ID    = os.environ.get("API_ID", "20137104") 
+API_HASH  = os.environ.get("API_HASH", "1209338eedc55ab701dd2e9d353c05ad") 
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "8265358758:AAHW8rmGQFKMSiiS1m8woEaYkbSSzrwROZI") 
 OWNER_ID = int(os.environ.get("OWNER_ID", "6697397532"))
 CREDIT = "ঔৣ☬Rocky☬ঔৣ" 
 HELPLINK = "https://t.me/+Tyun2Ha78z03ODUx" 
