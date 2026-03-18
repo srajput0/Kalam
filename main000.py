@@ -1,3 +1,5 @@
+
+
 import io
 import os
 import re
@@ -47,8 +49,8 @@ import ffmpeg
 import speedtest
 from single import *
 
-LOG_CHANNEL = -1003855253744      # for media logs
-LOG_GROUP_ID = -1003832689268     # for topic logs
+LOG_CHANNEL = -1003510970149      # for media logs
+LOG_GROUP_ID = -1003510970149     # for topic logs
 #=======================================================
 # Initialize the bot
 bot = Client(
@@ -1411,8 +1413,7 @@ async def start(client: Client, msg: Message):
             f"Do you want to switch to this bot?",
             reply_markup=keyboard
         )
-        
-    user = await client.get_me()
+    user = await bot.get_me()
     mention = user.mention
     
     wait_msg = await msg.reply(
@@ -1425,6 +1426,7 @@ async def start(client: Client, msg: Message):
     start_message = await client.send_photo(
         chat_id=msg.chat.id,
         photo=welcome_image_path,
+        message_effect_id=random.choice(efcts),
         caption=Data.START.format(msg.from_user.mention, wish)
     )
     if len(msg.command) > 1:
