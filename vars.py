@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 API_ID    = os.environ.get("API_ID", "20137104") 
 API_HASH  = os.environ.get("API_HASH", "1209338eedc55ab701dd2e9d353c05ad") 
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "8265358758:AAHW8rmGQFKMSiiS1m8woEaYkbSSzrwROZI") 
-OWNER_ID = int(os.environ.get("OWNER_ID", "6697397532"))
+OWNER = int(os.environ.get("OWNER_ID", "6697397532"))
 CREDIT = "ঔৣ☬Rocky☬ঔৣ" 
 HELPLINK = "https://t.me/+Tyun2Ha78z03ODUx" 
 CONTACTLINK = "https://t.me/Dc5txt_bot" 
