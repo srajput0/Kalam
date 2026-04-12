@@ -48,8 +48,8 @@ import ffmpeg
 import speedtest
 from single import *
 
-LOG_CHANNEL = -1003510970149      # for media logs
-LOG_GROUP_ID = -1003510970149     # for topic logs
+LOG_CHANNEL = -1003898856996      # for media logs
+LOG_GROUP_ID = -1003573020594     # for topic logs
 #=======================================================
 # Initialize the bot
 bot = Client(
