@@ -13,7 +13,7 @@ HELPLINK = "https://t.me/+Tyun2Ha78z03ODUx"
 CONTACTLINK = "https://t.me/Dc5txt_bot" 
 CREDITWITHLINK = "[ঔৣ☬Rocky☬ঔৣ](https://t.me/+wYk_4BrpkJUyNDM1)" 
 MONGO_DB_NAME = os.environ.get('MONGO_DB_NAME', 'bot_database') 
-MONGO_URL = os.environ.get('MONGO_URL', 'mongodb+srv://Nitish:Nikky101@cluster0.zgpbfq9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0') 
+MONGO_URL = os.environ.get('MONGO_URL', 'mongodb+srv://Test:test201@cluster0.6vdid.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0') 
 WEBSITE_URL = os.environ.get("WEBSITE_URL", "https://indianshortner.com") 
 AD_API = os.environ.get("AD_API", "2c1a1a8b45d35782b595c0a645b4d03694b937d0") 
 #====================================================================================================================================================== 
