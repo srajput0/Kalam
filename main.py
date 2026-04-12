@@ -22,12 +22,12 @@ from bs4 import BeautifulSoup
 import core as helper
 from core import decrypt_file_txt
 from utils import progress_bar
-from vars import OWNER, AUTH_USERS, LOG_CHANNEL
-from vars import API_ID, API_HASH, BOT_TOKEN
-from vars import save_user_id, get_all_user_ids, remove_user_id
-from vars import cookies_file_path, INSTAGRAM_COOKIES_PATH
-from vars import adda_token, token_cp, api_token, api_url
-from vars import photozip, photocp, photoyt, photologo
+#from vars import OWNER, AUTH_USERS, LOG_CHANNEL
+#from vars import API_ID, API_HASH, BOT_TOKEN
+#from vars import save_user_id, get_all_user_ids, remove_user_id
+#from vars import cookies_file_path, INSTAGRAM_COOKIES_PATH
+#from vars import adda_token, token_cp, api_token, api_url
+#from vars import photozip, photocp, photoyt, photologo
 from aiohttp import ClientSession
 from subprocess import getstatusoutput
 from pytube import YouTube
