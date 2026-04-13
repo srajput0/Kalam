@@ -147,42 +147,57 @@ image_urls = [
 ]
 
 #=========================== Media topic ===================================
+
+#=========================== Media topic ===================================
 from pyrogram.raw import functions
 import random
 
-# Pehle naya function define kiya
+# Super-Bulletproof Topic Creator
 async def safe_create_forum_topic(app, chat_id, title):
+    rand_id = random.randint(1, 999999)
+    
+    # Pehle default Pyrogram method try karega
     try:
         topic = await app.create_forum_topic(chat_id, title)
         return topic.id
-    except TypeError:
-        peer = await app.resolve_peer(chat_id)
-        try:
-            r = await app.invoke(
-                functions.messages.CreateForumTopic(
-                    peer=peer, title=title, random_id=random.randint(1, 999999)
-                )
-            )
-            return r.updates[0].message.id if hasattr(r, 'updates') else 0
-        except Exception:
-            r = await app.invoke(
-                functions.channels.CreateForumTopic(
-                    channel=peer, title=title, random_id=random.randint(1, 999999)
-                )
-            )
-            return r.updates[0].message.id if hasattr(r, 'updates') else 0
+    except Exception:
+        pass
 
-# Phir aapka wala function jo naye function ko call karega
+    peer = await app.resolve_peer(chat_id)
+    
+    # Agar default fail hua, toh 4 alag-alag Raw API combinations try karega
+    try:
+        r = await app.invoke(functions.channels.CreateForumTopic(peer=peer, title=title, random_id=rand_id))
+        return r.updates[0].message.id if hasattr(r, 'updates') else 0
+    except Exception:
+        pass
+        
+    try:
+        r = await app.invoke(functions.channels.CreateForumTopic(channel=peer, title=title, random_id=rand_id))
+        return r.updates[0].message.id if hasattr(r, 'updates') else 0
+    except Exception:
+        pass
+        
+    try:
+        r = await app.invoke(functions.messages.CreateForumTopic(peer=peer, title=title, random_id=rand_id))
+        return r.updates[0].message.id if hasattr(r, 'updates') else 0
+    except Exception as e:
+        print(f"Topic creation failed: {e}")
+        return 0
+
+# Main Topic Function
 async def get_or_create_topic_id(channel_id, t_name, b_name):
     existing = topics_collection.find_one({"channel_id": channel_id, "topic": t_name})
     if existing:
         return existing["topic_id"]
 
-    # Create forum topic
     try:
-        # Naya fix apply kiya gaya hai
         topic_id = await safe_create_forum_topic(bot, channel_id, t_name)
         
+        # Agar topic_id 0 aata hai, toh iska matlab topic nahi ban paya
+        if not topic_id:
+            raise Exception("Topic ID return as 0")
+
         welcome = await bot.send_message(chat_id=channel_id,message_thread_id=topic_id,text=f"<blockquote><b>🧾Batch Name : {b_name}\n🧩Topic Name : {t_name}</b></blockquote>")
         try:
             await bot.pin_chat_message(channel_id, welcome.id)
@@ -214,7 +229,6 @@ async def get_or_create_topic_id(channel_id, t_name, b_name):
         except Exception as e2:
             await bot.send_message(chat_id=channel_id, text=f"Failed to pin message: {str(e2)}")
         return None
-
 
         
 #================================================================================================================================
