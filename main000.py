@@ -53,7 +53,7 @@ LOG_GROUP_ID = -1003573020594     # for topic logs
 #=======================================================
 # Initialize the bot
 bot = Client(
-    "bot",
+    "botttt",
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN
