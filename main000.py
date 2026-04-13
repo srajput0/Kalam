@@ -4317,9 +4317,9 @@ async def process_drm_input(bot: Client, m: Message):
                         async with aiohttp.ClientSession(headers=headers) as session:
                             async with session.get(url) as response:
                                 if response.status == 200:
-                                    p1_data = await response.read()
                                     with open(f"{name}.p1", 'wb') as f:
-                                        f.write(p1_data)
+                                        async for chunk in response.content.iter_chunked(1024 * 1024):
+                                            f.write(chunk)
                                     if topic == "yes":
                                         topic_id = await get_or_create_topic_id(channel_id, t_name, b_name)
                                         if topic_id:
