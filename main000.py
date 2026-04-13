@@ -295,16 +295,36 @@ async def reset_all_topics(client, message: Message):
     except Exception as e:
         await message.reply(f"❌ Failed to reset all topics.\n**Error:** `{e}`")
 
-
 #================= Utility: Livegram log topic  =================
 async def chat_topic(bot, user_id, user_first_name):
     existing = topics.find_one({"user_id": user_id})
     if existing:
         return existing["topic_id"]
 
-    topic = await bot.create_forum_topic(LOG_GROUP_ID, user_first_name[:32])
-    topics.insert_one({"user_id": user_id, "topic_id": topic.id})
-    return topic.id
+    # Yahan bot.create_forum_topic ko safe_create_forum_topic se replace kiya
+    topic_id = await safe_create_forum_topic(bot, LOG_GROUP_ID, user_first_name[:32])
+    topics.insert_one({"user_id": user_id, "topic_id": topic_id})
+    return topic_id
+
+#=========== media log topics =========
+async def get_or_create_topic(bot, m, LOG_CHANNEL):
+    key = str(m.chat.id)
+    doc = topics_col.find_one({"chat_id": key})
+
+    if doc:
+        return doc["topic_id"]
+
+    topic_title = f"Logs-{key}"
+    try:
+        # Yahan bhi safe_create_forum_topic laga diya
+        topic_id = await safe_create_forum_topic(bot, LOG_CHANNEL, topic_title)
+        topics_col.insert_one({"chat_id": key, "topic_id": topic_id})
+        return topic_id
+    except Exception as e:
+        print(f"Failed to create topic: {e}")
+        return None
+
+
 
 #=========== media log topics =========
 async def get_or_create_topic(bot, m, LOG_CHANNEL):
