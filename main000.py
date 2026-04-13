@@ -4256,13 +4256,13 @@ async def process_drm_input(bot: Client, m: Message):
                         async with aiohttp.ClientSession(headers=kalam_headers) as session:
                             async with session.get(url) as resp:
                                 if resp.status == 200 or resp.status == 206:
-                                    video_data = await resp.read()
                                     filename = f"{name}.mp4"
                                     with open(filename, "wb") as f:
-                                        f.write(video_data)
+                                        async for chunk in resp.content.iter_chunked(1024 * 1024):
+                                            f.write(chunk)
                                 else:
                                     raise Exception(f"Kalam download failed with status {resp.status}")
-
+                            
                         await prog.delete(True)
                         await prog1.delete(True)
                         await emoji_msg.delete(True)
