@@ -145,6 +145,7 @@ image_urls = [
     "https://tinypic.host/images/2025/02/07/DeWatermark.ai_1738952933236-1.png",
     # Add more image URLs as needed
 ]
+
 #=========================== Media topic ===================================
 async def get_or_create_topic_id(channel_id, t_name, b_name):
     existing = topics_collection.find_one({"channel_id": channel_id, "topic": t_name})
@@ -153,8 +154,9 @@ async def get_or_create_topic_id(channel_id, t_name, b_name):
 
     # Create forum topic
     try:
-        forum_topic = await bot.create_forum_topic(channel_id, t_name)
-        topic_id = forum_topic.id
+        # Naya fix apply kiya gaya hai
+        topic_id = await safe_create_forum_topic(bot, channel_id, t_name)
+        
         welcome = await bot.send_message(chat_id=channel_id,message_thread_id=topic_id,text=f"<blockquote><b>🧾Batch Name : {b_name}\n🧩Topic Name : {t_name}</b></blockquote>")
         try:
             await bot.pin_chat_message(channel_id, welcome.id)
@@ -186,7 +188,7 @@ async def get_or_create_topic_id(channel_id, t_name, b_name):
         except Exception as e2:
             await bot.send_message(chat_id=channel_id, text=f"Failed to pin message: {str(e2)}")
         return None
-
+        
 #================================================================================================================================
 # 1️⃣ RESET specific channel's media topics
 @bot.on_message(filters.command("rmt") & filters.private & filters.user(OWNER_ID) & not_banned())
