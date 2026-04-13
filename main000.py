@@ -3718,13 +3718,13 @@ async def process_drm_input(bot: Client, m: Message):
                 url =  f"https://master-api-v3.vercel.app/adda-mp4-m3u8?url={url}&quality={raw_text2}&token={adda_token}"
                 
             if "appx-recordings-mcdn.akamai.net.in/drm/" in url:
-                cmd = f'ffmpeg -i "{url}" -c copy -bsf:a aac_adtstoasc "{name}.mp4"'
+                cmd = f'ffmpeg -y -i "{url}" -c copy -bsf:a aac_adtstoasc "{name}.mp4"'
 
             if "appx-recordings-mcdn.akamai.net.in/drm/" in url:
-                cmd = f'ffmpeg -i "{url}" -c copy -bsf:a aac_adtstoasc "{name}.mp4"'
+                cmd = f'ffmpeg -y -i "{url}" -c copy -bsf:a aac_adtstoasc "{name}.mp4"'
                 
             elif "arvind" in url:
-                cmd = f'ffmpeg -i "{url}" -c copy -bsf:a aac_adtstoasc "{name}.mp4"'
+                cmd = f'ffmpeg -y -i "{url}" -c copy -bsf:a aac_adtstoasc "{name}.mp4"'
                 
             elif "https://appx-transcoded-videos.livelearn.in/videos/rozgar-data/" in url:
                 url = url.replace("https://appx-transcoded-videos.livelearn.in/videos/rozgar-data/", "")
