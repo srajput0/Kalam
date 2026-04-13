@@ -147,6 +147,32 @@ image_urls = [
 ]
 
 #=========================== Media topic ===================================
+from pyrogram.raw import functions
+import random
+
+# Pehle naya function define kiya
+async def safe_create_forum_topic(app, chat_id, title):
+    try:
+        topic = await app.create_forum_topic(chat_id, title)
+        return topic.id
+    except TypeError:
+        peer = await app.resolve_peer(chat_id)
+        try:
+            r = await app.invoke(
+                functions.messages.CreateForumTopic(
+                    peer=peer, title=title, random_id=random.randint(1, 999999)
+                )
+            )
+            return r.updates[0].message.id if hasattr(r, 'updates') else 0
+        except Exception:
+            r = await app.invoke(
+                functions.channels.CreateForumTopic(
+                    channel=peer, title=title, random_id=random.randint(1, 999999)
+                )
+            )
+            return r.updates[0].message.id if hasattr(r, 'updates') else 0
+
+# Phir aapka wala function jo naye function ko call karega
 async def get_or_create_topic_id(channel_id, t_name, b_name):
     existing = topics_collection.find_one({"channel_id": channel_id, "topic": t_name})
     if existing:
@@ -188,6 +214,8 @@ async def get_or_create_topic_id(channel_id, t_name, b_name):
         except Exception as e2:
             await bot.send_message(chat_id=channel_id, text=f"Failed to pin message: {str(e2)}")
         return None
+
+
         
 #================================================================================================================================
 # 1️⃣ RESET specific channel's media topics
