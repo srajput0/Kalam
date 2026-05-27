@@ -4278,10 +4278,10 @@ async def process_drm_input(bot: Client, m: Message):
                 elif kalam_download:
                     try:
                         kalam_headers = {
-                            "Host": "testing-news.kalampublication.in",
+                            "Host": "hello-aws-uat.kalampublication.in",
                             "mobilenumber": "aDhYejdQcVIyd0IxazlEZg\u003d\u003d",
                             "range": "bytes=0-",
-                            "referer": "https://testing-news.kalampublication.in",
+                            "referer": "https://hello-aws-uat.kalampublication.in",
                             "user-agent": "okhttp/4.12.0"
                         }
                         index_remaining_links = end - count
